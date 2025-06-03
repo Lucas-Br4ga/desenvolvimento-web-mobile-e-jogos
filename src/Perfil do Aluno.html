@@ -2,36 +2,116 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Perfil do Aluno</title>
+    <link href="Style.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Dados Pessoais</h1>
-    <img src="../Imagens/Perfil-killua-01.jpg" alt="Perfil-killua-01">
-    <h2>Nome:</h2>
-    <p>Lucas Rodrigues Braga</p>
-    <h2>RA:</h2>
-    <p>324123443</p>
-    <h2>E-mail</h2>
-    <p>lucasrbraga77@gmail.com</p>
-    <h2>Endereço:</h2>
-    <p>Av. Pastor Anselmo Silvestre, 1495 - Fernão Dias, Belo Horizonte - MG, 31170-678</p>
+
+    <div class="secao-dados-pessoais-layout">
+        <div class="bloco-tabela-e-titulo">
+            <h1>Dados Pessoais</h1>
+            <table>
+                <tbody>
+                    <tr>
+                        <th><p>Nome:</p></th>
+                        <td><p>Lucas Rodrigues Braga</p></td>
+                    </tr>
+                    <tr>
+                        <th><p>RA:</p></th>
+                        <td><p>324123443</p></td>
+                    </tr>
+                    <tr>
+                        <th><p>E-mail:</p></th>
+                        <td><p>lucasrbraga77@gmail.com</p></td>
+                    </tr>
+                    <tr>
+                        <th><p>Endereço:</p></th>
+                        <td><p>Pastor Anselmo Silvestre, 1495 - Fernão Dias, Belo Horizonte - MG, 31170-678</p></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="bloco-slime-e-bolinhas">
+            <img alt="Slime de Carrossel" class="imagem-slime"
+                 onclick="changeImage('../Imagens/Perfil-killua-01.jpg', 'Perfil Foto 1')"
+                 src="../Imagens/Rimuro-01.webp">
+            <div class="grupo-bolinhas">
+                <img alt="Bolinha 1" class="bolinha" onclick="mudaImagens(1)" src="../Imagens/bolinha.webp">
+                <img alt="Bolinha 2" class="bolinha" onclick="mudaImagens(2)" src="../Imagens/bolinha.webp">
+                <img alt="Bolinha 3" class="bolinha" onclick="mudaImagens(3)" src="../Imagens/bolinha.webp">
+                <img alt="Bolinha 4" class="bolinha" onclick="mudaImagens(4)" src="../Imagens/bolinha.webp">
+                <img alt="Bolinha 5" class="bolinha" onclick="mudaImagens(5)" src="../Imagens/bolinha.webp">
+            </div>
+        </div>
+    </div>
+
     <h1>Informações Academicas</h1>
-    <h2>Curso:</h2>
-    <p>Análise em Desenvolvimento de Sistemas</p>
-    <h2>Período Atual</h2>
-    <p>3° Período</p>
-    <h2>UCs Cursadas:</h2>
-    <p>Ambientes computacionais e conectividade</p>
-    <p>Modelagem de software</p>
-    <p>Programação de soluções computacionais</p>
-    <p>Sistemas computacionais e segurança</p>
+    <table>
+        <tbody>
+        <tr>
+            <th><p>Curso:</p></th>
+            <td><p> Análise em Desenvolvimento de Sistemas</p></td>
+        </tr>
+        <tr>
+            <th><p>Período Atual:</p></th>
+            <td><p>3° Período</p></td>
+        </tr>
+        <tr>
+            <th><p>Cursadas:</p></th>
+            <td>
+                <ul>
+                    <li><p>Ambientes computacionais e conectividade</p></li>
+                    <li><p>Modelagem de software</p></li>
+                    <li><p>Programação de soluções computacionais</p></li>
+                    <li><p>Sistemas computacionais e segurança</p></li>
+                </ul>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
     <h1>Perfil Pessoal</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni sapiente quaerat modi eos deserunt eligendi error voluptatum repellat ab at? Inventore quia velit doloribus iure, eos obcaecati sequi corrupti tempore!</p>
+    <table>
+        <tr>
+            <td>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni sapiente quaerat modi eos deserunt
+                    eligendi
+                    error voluptatum repellat ab at? Inventore quia velit doloribus iure, eos obcaecati sequi corrupti
+                    tempore!
+                </p>
+            </td>
+        </tr>
+    </table>
+
     <h1>Perfil Profissional/Acadêmico</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nulla deserunt praesentium, unde molestias ipsum voluptatibus rerum numquam nihil tempora, dicta ducimus laboriosam recusandae cum quidem et fugit odit repellendus!</p>
-    <h1>Link Importantes</h1>
-    <a href="https://www.linkedin.com/in/lucas-br4ga/">Linkedin</a><br>
-    <a href="https://github.com/Lucas-Br4ga">GitHub</a>
-</body>
+    <table>
+        <tr>
+            <td>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nulla deserunt praesentium, unde
+                    molestias
+                    ipsum voluptatibus rerum numquam nihil tempora, dicta ducimus laboriosam recusandae cum quidem et fugit
+                    odit
+                    repellendus!
+                </p>
+            </td>
+        </tr>
+    </table>
+
+    <h1>Links Importantes</h1>
+    <table>
+        <tr>
+            <th><p>LinkedIn:</p></th>
+            <td><a href="https://www.linkedin.com/in/lucas-br4ga/" target="_blank">linkedin.com/in/lucas-br4ga</a></td>
+        </tr>
+        <tr>
+            <th><p>GitHub:</p></th>
+            <td><a href="https://github.com/Lucas-Br4ga" target="_blank">github.com/Lucas-Br4ga</a></td>
+        </tr>
+    </table>
+
+    <script src="script.js"></script> </body>
 </html>
