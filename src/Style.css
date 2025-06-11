@@ -42,7 +42,7 @@ img.profile-initial {
 }
 
 table {
-   width: 100%; /* Ajuste a largura da tabela para preencher o contêiner */
+   width: 100%;
    margin-top: 20px;
    border-collapse: collapse;
    background-color: #E6F6FB;
@@ -81,48 +81,37 @@ ul li p {
    padding: 3px 0;
 }
 
-/* ---------------------------------------------------- */
-/* NOVOS ESTILOS PARA O LAYOUT PRINCIPAL DE DADOS PESSOAIS */
-/* ---------------------------------------------------- */
-
-.secao-dados-pessoais-layout {
-    display: flex; /* Para colocar a tabela e o slime/bolinhas lado a lado */
-    justify-content: space-between; /* Empurra a tabela para a esquerda e o slime/bolinhas para a direita */
-    align-items: flex-start; /* Alinha os blocos pelo topo */
-    gap: 10%; /* Espaçamento entre os dois blocos */
+.bloco-dados-pessoal {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10%;
     width: 100%;
-    max-width: 1200px; /* Limite de largura para telas grandes */
-    /* Centraliza esta seção na página */
-    /* background-color: #fcfcfc; /* Opcional: cor de fundo para visualizar o container */
-    /* padding: 20px; /* Opcional: padding interno */
-    /* border-radius: 8px; */
-    /* box-shadow: 0 4px 10px rgba(0,0,0,0.05); */
+    max-width: 1200px;
 }
 
-.bloco-tabela-e-titulo {
-    flex: 1; /* Permite que este bloco ocupe o espaço disponível */
-    min-width: 100%; /* Largura mínima para a tabela não ficar muito espremida */
+.titulo {
+    flex: 1;
+    min-width: 100%;
 }
 
 .bloco-slime-e-bolinhas {
     display: flex;
-    flex-direction: column; /* Para colocar o slime acima das bolinhas */
-    align-items: center;    /* Centraliza o slime e as bolinhas horizontalmente */
-    /* Não precisa de margin-left: auto; aqui, pois o justify-content: space-between no pai já faz o trabalho */
-    padding: 15px; /* Padding interno para o bloco do slime/bolinhas */
-    /* border: 1px dashed #a0d9f5; /* Opcional: para visualizar o contêiner */
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
     border-radius: 8px;
-    background-color: #E6F6FB; /* Cor de fundo semelhante à tabela */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Sombra para o bloco */
-    align-self: flex-start; /* Alinha este item ao topo dentro do .secao-dados-pessoais-layout */
+    background-color: #E6F6FB;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    align-self: flex-start;
     margin-top: 9%;
 
 }
 
-.imagem-slime { /* Classe para a imagem do slime */
-    width: 432px; /* Tamanho do slime */
+.slime {
+    width: 432px;
     height: auto;
-    margin-bottom: 15px; /* Espaço entre o slime e as bolinhas */
+    margin-bottom: 15px;
     display: block;
     max-height: 300px;
 }
@@ -133,10 +122,9 @@ ul li p {
     justify-content: center;
     width: 100%;
     padding-bottom: 5px;
-    /* Remover quaisquer position: absolute, bottom, left, transform, z-index antigos */
 }
 
-.bolinha { /* Classe para as imagens das bolinhas */
+.bolinha {
     width: 25px;
     height: 25px;
     cursor: pointer;
@@ -148,73 +136,3 @@ ul li p {
 .bolinha.active {
     opacity: 1;
 }
-
-/* ---------------------------------------------------- */
-/* Media Queries para Responsividade (AJUSTES) */
-/* ---------------------------------------------------- */
-
-@media (max-width: 900px) { /* Ajuste o breakpoint se necessário */
-    .secao-dados-pessoais-layout {
-        flex-direction: column; /* Coloca a tabela e o slime/bolinhas em coluna */
-        align-items: center; /* Centraliza os itens */
-        gap: 20px;
-    }
-
-    .bloco-tabela-e-titulo {
-        width: 100%; /* Ocupa a largura total quando em coluna */
-        min-width: unset; /* Remove o min-width para mais flexibilidade */
-    }
-
-    table {
-        width: 90%; /* Ajusta a largura da tabela em telas menores */
-    }
-
-    .bloco-slime-e-bolinhas {
-        /* Não precisa de margin-left: 0; aqui, pois já não tinha auto */
-        align-self: center; /* Centraliza este item quando em coluna */
-    }
-}
-
-@media (max-width: 480px) { /* Para telas de celulares menores */
-    body {
-        padding: 15px;
-    }
-    h1 {
-        font-size: 1.5rem;
-    }
-    th, td {
-        padding: 12px 15px;
-        font-size: 0.9rem;
-    }
-    .imagem-slime {
-        width: 90px;
-    }
-    .bolinha {
-        width: 20px;
-        height: 20px;
-    }
-    .secao-dados-pessoais-layout {
-        width: 100%; /* Ocupa toda a largura disponível */
-    }
-}
-
-/* Remove os estilos antigos de .imagem e .perfil que foram substituídos */
-/* O bloco abaixo pode ser removido do seu Style.css se não for mais usado em outro lugar */
-/*
-.imagem {
-    width: 44%;
-    max-width: 432px;
-    min-width: 432px;
-    height: auto;
-    z-index: 10;
-    height: auto;
-    margin-bottom: 20px;
-}
-.perfil{
-     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    position: relative;
-}
-*/
