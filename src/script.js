@@ -1,127 +1,121 @@
-function mudaImagens(id){
-    const slime =document.querySelector('.slime');
-    slime.src = `../Imagens/Rimuro-0${id}.webp`
-}
-
-function FormatarCPF(){
-    const cpf = document.getElementById('cpf');
-    
-    cpf.addEventListener('input', () => {
-      let value = cpf.value.replace(/\D/g, '');
-      if (value.length > 11) value = value.slice(0, 11);
-
-      value = value.replace(/(\d{3})(\d)/, '$1.$2');
-      value = value.replace(/(\d{3})(\d)/, '$1.$2');
-      value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-
-      cpf.value = value;
-    });
-
-    cpf.addEventListener('blur', () => {
-      const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
-      if (!cpfRegex.test(cpf.value)) {
-          alert("CPF inválido")
-      }
-    });
-}
-
-function FormatarGmail() {
-  const email = document.getElementById('email');
-
-  email.addEventListener('blur', () => {
-    const emailValor = email.value.trim();
-
-    const gmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-    if (!gmailRegex.test(emailValor)) {
-      alert('E-mail inválido!');
+function mudaImagens(id) {
+    const slime = document.querySelector('.slime');
+    if (slime) {
+        slime.src = `../Imagens/Rimuro-0${id}.webp`;
+    } else {
+        console.error("Erro: Elemento '.slime' não encontrado para mudar a imagem.");
     }
-  });
 }
 
+function configurarCPF() {
+    const cpf = document.getElementById('cpf');
+    if (cpf) {
+        cpf.addEventListener('input', () => {
+            let valor = cpf.value.replace(/\D/g, '');
+            if (valor.length > 11) {
+                valor = valor.slice(0, 11);
+            }
+            valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+            valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+            valor = valor.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            cpf.value = valor;
+        });
+        cpf.addEventListener('blur', () => {
+            const regexCpf = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+            if (!regexCpf.test(cpf.value) && cpf.value.trim() !== '') {
+                alert("CPF inválido. Por favor, insira um CPF no formato 000.000.000-00.");
+            }
+        });
+    } else {
+        console.error("Erro: Elemento 'cpf' não encontrado para configurar CPF.");
+    }
+}
 
+function validarEmail() {
+    const email = document.getElementById('email');
+    if (email) {
+        email.addEventListener('blur', () => {
+            const valorEmail = email.value.trim();
+            const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!regexEmail.test(valorEmail) && valorEmail !== '') {
+                alert('E-mail inválido! Por favor, insira um e-mail no formato correto (ex: seuemail@dominio.com).');
+            }
+        });
+    } else {
+        console.error("Erro: Elemento 'email' não encontrado para validar e-mail.");
+    }
+}
 
-// O restante do seu código JavaScript (mudaImagens, configurarCPF, validarEmail) permanece o mesmo acima.
-
-// --- Novas Funções para UCs ---
-
-/**
- * Adiciona uma nova UC à lista usando um prompt.
- */
 function adicionarUC() {
     const nomeUC = prompt("Digite o nome da nova Unidade Curricular (UC):");
-
-    if (nomeUC) { // Garante que o usuário digitou algo
-        const listaUcs = document.getElementById('lista-ucs');
-        if (listaUcs) {
+    if (nomeUC) {
+        const listaUC = document.getElementById('lista-UC');
+        if (listaUC) {
             const novoLi = document.createElement('li');
-            // Você pode adicionar um ID ou data-uc-id para a nova UC se quiser controlá-la depois
-            // Exemplo: novoLi.setAttribute('data-uc-id', listaUcs.children.length + 1);
-
-            novoLi.innerHTML = `<p>${nomeUC}</p><button class="move-up">↑</button><button class="move-down">↓</button>`;
-            listaUcs.appendChild(novoLi);
-            console.log(`Nova UC adicionada: "${nomeUC}"`); // Para debug no console
+            novoLi.innerHTML = `<p>${nomeUC}</p><button class="seta-cima">↑</button><button class="seta-baixo">↓</button>`;
+            listaUC.appendChild(novoLi);
+            console.log(`Nova UC adicionada: "${nomeUC}"`);
         } else {
-            console.error("Elemento 'lista-ucs' não encontrado no DOM.");
+            console.error("Erro: Elemento 'lista-UC' não encontrado no DOM para adicionar UC.");
         }
     }
 }
 
-/**
- * Configura os listeners para os botões de mover UC para cima/baixo.
- */
-function configurarOrdenacaoUCs() {
-    const listaUcs = document.getElementById('lista-ucs');
-
-    if (listaUcs) {
-        listaUcs.addEventListener('click', (event) => {
-            const clickedButton = event.target;
-            const listItem = clickedButton.closest('li'); // Encontra o <li> mais próximo
-
-            if (!listItem) return; // Se não clicou em um <li> ou em um botão dentro dele, sai
-
-            if (clickedButton.classList.contains('move-up')) {
-                // Mover para cima
-                const previousListItem = listItem.previousElementSibling;
-                if (previousListItem) { // Se existe um item anterior
-                    listaUcs.insertBefore(listItem, previousListItem);
+function configurarOrdenacaoUC() {
+    const listaUC = document.getElementById('lista-UC');
+    if (listaUC) {
+        listaUC.addEventListener('click', (event) => {
+            const botaoClicado = event.target;
+            const itemLista = botaoClicado.closest('li');
+            if (!itemLista) return;
+            if (botaoClicado.classList.contains('seta-cima')) {
+                const itemAnterior = itemLista.previousElementSibling;
+                if (itemAnterior) {
+                    listaUC.insertBefore(itemLista, itemAnterior);
                     console.log("UC movida para cima.");
                 }
-            } else if (clickedButton.classList.contains('move-down')) {
-                // Mover para baixo
-                const nextListItem = listItem.nextElementSibling;
-                if (nextListItem) { // Se existe um item posterior
-                    listaUcs.insertBefore(nextListItem, listItem);
+            } else if (botaoClicado.classList.contains('seta-baixo')) {
+                const proximoItem = itemLista.nextElementSibling;
+                if (proximoItem) {
+                    listaUC.insertBefore(proximoItem, itemLista);
                     console.log("UC movida para baixo.");
                 }
             }
         });
     } else {
-        console.error("Elemento 'lista-ucs' não encontrado no DOM.");
+        console.error("Erro: Elemento 'lista-UC' não encontrado para configurar ordenação de UCs.");
     }
 }
 
-// Chamar as novas funções quando a página carregar
-window.addEventListener('load', () => {
-    // Suas funções existentes
+function configurarEdicaoPerfis() {
+    const perfilPessoal = document.getElementById('perfil-pessoal');
+    const perfilProfissional = document.getElementById('perfil-profissional');
+    if (perfilPessoal) {
+        perfilPessoal.addEventListener('blur', () => {
+            console.log('Perfil Pessoal atualizado:', perfilPessoal.textContent.trim());
+        });
+    } else {
+        console.error("Erro: Elemento 'perfil-pessoal' não encontrado para configurar edição.");
+    }
+    if (perfilProfissional) {
+        perfilProfissional.addEventListener('blur', () => {
+            console.log('Perfil Profissional/Acadêmico atualizado:', perfilProfissional.textContent.trim());
+        });
+    } else {
+        console.error("Erro: Elemento 'perfil-profissional' não encontrado para configurar edição.");
+    }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM completamente carregado. Inicializando funcionalidades...");
     configurarCPF();
     validarEmail();
-
-    // Novas funções
-    const addButton = document.getElementById('add-uc-btn');
-    if (addButton) {
-        addButton.addEventListener('click', adicionarUC);
+    const botaoAddUC = document.getElementById('add-UC');
+    if (botaoAddUC) {
+        botaoAddUC.addEventListener('click', adicionarUC);
     } else {
-        console.error("Botão 'add-uc-btn' não encontrado no DOM.");
+        console.error("Erro: Botão 'add-UC' não encontrado para configurar o evento de clique.");
     }
-
-    configurarOrdenacaoUCs();
+    configurarOrdenacaoUC();
+    configurarEdicaoPerfis();
 });
-
-
-
-
-
-
-window.addEventListener('load', FormatarCPF);
-window.addEventListener('load', FormatarGmail);

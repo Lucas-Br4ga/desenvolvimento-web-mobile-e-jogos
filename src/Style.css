@@ -136,3 +136,54 @@ ul li p {
 .bolinha.active {
     opacity: 1;
 }
+
+
+
+input { /* Se você adicionar um textarea para os campos editáveis no futuro */
+    width: calc(100% - 24px); /* Largura total menos padding */
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #A4D9F6; /* Cor da borda em tom azul claro, como o TH */
+    border-radius: 5px; /* Bordas levemente arredondadas */
+    box-sizing: border-box; /* Inclui padding e borda na largura total */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    color: #101820;
+    background-color: #F2F9FB; /* Fundo levemente mais claro que o padrão */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave para foco */
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    /* Removido: transição e box-shadow para simplicidade */
+}
+
+/* Estilo para o botão "Adicionar Nova UC" */
+#add-UC {
+    background-color: #1A3B5D; /* Azul escuro do seu H1 */
+    color: #F2F9FB; /* Cor de texto claro */
+    margin-top: 15px;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    /* Removido: hover, active e transform para simplicidade */
+}
+
+/* Estilos para os botões de mover UC (setas) */
+.seta-cima, .seta-baixo {
+    background-color: #A4D9F6; /* Azul claro, como o TH */
+    color: #1A3B5D; /* Azul escuro do seu H1 */
+    padding: 5px 8px;
+    font-size: 0.9rem;
+    margin-left: 5px;
+    border-radius: 3px;
+    /* Removido: hover, active, transform e box-shadow para simplicidade */
+}
