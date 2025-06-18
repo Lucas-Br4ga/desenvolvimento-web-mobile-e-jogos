@@ -7,7 +7,7 @@ o perfil de um aluno, utilizando HTML, CSS e JavaScript de forma progressiva.
 
 ###  Branches do Projeto
 
-**⚠ IMPORTANTE: Cada fase está em uma branch separada!**
+**IMPORTANTE: Cada fase está em uma branch separada!**
 
 | Branch    | Descrição                           | Tecnologias                      |
 |-----------|-------------------------------------|----------------------------------|
